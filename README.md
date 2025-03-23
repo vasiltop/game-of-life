@@ -11,3 +11,4 @@ cd game-of-life
 make
 ```
 
+![Screenshot](./images/image.png)
