@@ -35,7 +35,8 @@ void render() {
 		}
 	}
 
-	DrawText(TextFormat("Paused: %s", paused ? "true": "false"), 10, 10, FONT_SIZE, BLACK);
+	if (paused)
+		DrawText(TextFormat("Paused: %s", paused ? "true": "false"), 10, 10, FONT_SIZE, BLACK);
 }
 
 bool in_bounds(v2 pos) {
