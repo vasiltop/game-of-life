@@ -2,7 +2,7 @@
 This is a simple implementation of **Conway's Game of Life** using the [Raylib](https://www.raylib.com/) library.
 
 ## Prerequisites
-1. **Raylib**: [Download](https://github.com/raysan5/raylib).
+1. **Raylib**: [Download](https://github.com/raysan5/raylib)
 
 ## Installing
 ```bash
