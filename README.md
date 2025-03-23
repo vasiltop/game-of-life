@@ -8,7 +8,7 @@ This is a simple implementation of **Conway's Game of Life** using the [Raylib](
 ```bash
 git clone https://github.com/vasiltop/game-of-life
 cd game-of-life
-make
+make install
 ```
 
 ## Controls
