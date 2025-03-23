@@ -11,4 +11,8 @@ cd game-of-life
 make
 ```
 
+## Controls
+* **Pause**: <kbd> Space </kbd>
+* **Create / Delete cells**: Mouse 1
+
 ![Screenshot](./images/image.png)
