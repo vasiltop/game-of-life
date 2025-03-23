@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include <stdio.h>
 #include "stdint.h"
 #include <math.h>
 
@@ -16,6 +17,8 @@ typedef float f32;
 typedef struct v2_s {
 	i32 x, y;
 } v2;
+
+v2 last_edited_cell = { 100, 100 };
 
 f32 timer = 0.;
 
@@ -36,7 +39,7 @@ void render() {
 	}
 
 	if (paused)
-		DrawText(TextFormat("Paused: %s", paused ? "true": "false"), 10, 10, FONT_SIZE, BLACK);
+		DrawText("Paused", 10, 10, FONT_SIZE, BLACK);
 }
 
 bool in_bounds(v2 pos) {
@@ -81,16 +84,18 @@ void advance_gen() {
 }
 
 void handle_mouse() {
-	if (!paused)
-		return;
 
-	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+	if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
 		Vector2 pos = GetMousePosition();
-
+		
 		i32 x = ((i32) floor(pos.x)) / CELL_SIZE;
 		i32 y = ((i32) floor(pos.y)) / CELL_SIZE;
+
+		if (x == last_edited_cell.x && y == last_edited_cell.y)
+			return;
 		
 		set_cell((v2) {x, y}, !is_live((v2) {x, y}));
+		last_edited_cell = (v2) { x, y };
 	}
 }
 
